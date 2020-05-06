@@ -2,10 +2,10 @@ FROM nginx:mainline
 MAINTAINER "cytopia" <cytopia@everythingcli.org>
 
 LABEL \
-	name="cytopia's nginx mainline image" \
-	image="devilbox/nginx-mainline" \
-	vendor="devilbox" \
-	license="MIT"
+    name="cytopia's nginx mainline image" \
+    image="devilbox/nginx-mainline" \
+    vendor="devilbox" \
+    license="MIT"
 
 
 ###
@@ -15,14 +15,14 @@ ARG VHOST_GEN_GIT_REF=0.16
 ARG CERT_GEN_GIT_REF=0.7
 
 ENV BUILD_DEPS \
-	git \
-	make \
-	wget
+    git \
+    make \
+    wget
 
 ENV RUN_DEPS \
-	ca-certificates \
-	python-yaml \
-	supervisor
+    ca-certificates \
+    python-yaml \
+    supervisor
 
 
 ###
@@ -38,46 +38,46 @@ ENV HTTPD_RELOAD="nginx -s stop"
 ### Install required packages
 ###
 RUN set -x \
-	&& apt-get update \
-	&& apt-get install --no-install-recommends --no-install-suggests -y \
-		${BUILD_DEPS} \
-		${RUN_DEPS} \
-	\
-	# Install vhost-gen
-	&& git clone https://github.com/devilbox/vhost-gen \
-	&& cd vhost-gen \
-	&& git checkout "${VHOST_GEN_GIT_REF}" \
-	&& make install \
-	&& cd .. \
-	&& rm -rf vhost*gen* \
-	\
-	# Install cert-gen
-	&& wget --no-check-certificate -O /usr/bin/ca-gen https://raw.githubusercontent.com/devilbox/cert-gen/${CERT_GEN_GIT_REF}/bin/ca-gen \
-	&& wget --no-check-certificate -O /usr/bin/cert-gen https://raw.githubusercontent.com/devilbox/cert-gen/${CERT_GEN_GIT_REF}/bin/cert-gen \
-	&& chmod +x /usr/bin/ca-gen \
-	&& chmod +x /usr/bin/cert-gen \
-	\
-	# Install watcherd
-	&& wget --no-check-certificate -O /usr/bin/watcherd https://raw.githubusercontent.com/devilbox/watcherd/master/watcherd \
-	&& chmod +x /usr/bin/watcherd \
-	\
-	# Clean-up
-	&& apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $fetchDeps \
-		${BUILD_DEPS} \
-	&& rm -rf /var/lib/apt/lists/*
+    && apt-get update \
+    && apt-get install --no-install-recommends --no-install-suggests -y \
+        ${BUILD_DEPS} \
+        ${RUN_DEPS} \
+    \
+    # Install vhost-gen
+    && git clone https://github.com/devilbox/vhost-gen \
+    && cd vhost-gen \
+    && git checkout "${VHOST_GEN_GIT_REF}" \
+    && make install \
+    && cd .. \
+    && rm -rf vhost*gen* \
+    \
+    # Install cert-gen
+    && wget --no-check-certificate -O /usr/bin/ca-gen https://raw.githubusercontent.com/devilbox/cert-gen/${CERT_GEN_GIT_REF}/bin/ca-gen \
+    && wget --no-check-certificate -O /usr/bin/cert-gen https://raw.githubusercontent.com/devilbox/cert-gen/${CERT_GEN_GIT_REF}/bin/cert-gen \
+    && chmod +x /usr/bin/ca-gen \
+    && chmod +x /usr/bin/cert-gen \
+    \
+    # Install watcherd
+    && wget --no-check-certificate -O /usr/bin/watcherd https://raw.githubusercontent.com/devilbox/watcherd/master/watcherd \
+    && chmod +x /usr/bin/watcherd \
+    \
+    # Clean-up
+    && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $fetchDeps \
+        ${BUILD_DEPS} \
+    && rm -rf /var/lib/apt/lists/*
 
 
 ###
 ### Create directories
 ###
 RUN set -x \
-	&& mkdir -p /etc/httpd-custom.d \
-	&& mkdir -p /etc/httpd/conf.d \
-	&& mkdir -p /etc/httpd/vhost.d \
-	&& mkdir -p /var/www/default/htdocs \
-	&& mkdir -p /shared/httpd \
-	&& chmod 0775 /shared/httpd \
-	&& chown ${MY_USER}:${MY_GROUP} /shared/httpd
+    && mkdir -p /etc/httpd-custom.d \
+    && mkdir -p /etc/httpd/conf.d \
+    && mkdir -p /etc/httpd/vhost.d \
+    && mkdir -p /var/www/default/htdocs \
+    && mkdir -p /shared/httpd \
+    && chmod 0775 /shared/httpd \
+    && chown ${MY_USER}:${MY_GROUP} /shared/httpd
 
 
 ###
