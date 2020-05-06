@@ -45,7 +45,7 @@ This Docker container adds a lot of injectables in order to customize it to your
 
 | Docker              | Description |
 |---------------------|-------------|
-| /etc/nginx/nginx.conf | Mount this file to add your outside configuration files to Nginx |
+| /etc/nginx/nginx.conf | Mount this file to add your nginx configuration files to Nginx |
 
 
 
