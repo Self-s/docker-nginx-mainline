@@ -8,21 +8,6 @@
 
 **[devilbox/docker-nginx-mainline](https://github.com/devilbox/docker-nginx-mainline)**
 
-This image is based on the official **[Nginx](https://hub.docker.com/_/nginx)** Docker image and extends it with the ability to have **virtual hosts created automatically**, as well as **adding SSL certificates** when creating new directories. For that to work, it integrates two tools that will take care about the whole process: **[watcherd](https://github.com/devilbox/watcherd)** and **[vhost-gen](https://github.com/devilbox/vhost-gen)**.
-
-From a users perspective, you mount your local project directory into the container under `/shared/httpd`. Any directory then created in your local project directory wil spawn a new virtual host by the same name. Additional settings such as custom server names, PHP-FPM or even different Apache templates per project are supported as well.
-
-**HTTP/2 is enabled by default for all SSL connections.**
-
-| Docker Hub | Upstream Project |
-|------------|------------------|
-| <a href="https://hub.docker.com/r/devilbox/nginx-mainline"><img height="82px" src="http://dockeri.co/image/devilbox/nginx-mainline" /></a> | <a href="https://github.com/cytopia/devilbox" ><img height="82px" src="https://raw.githubusercontent.com/devilbox/artwork/master/submissions_banner/cytopia/01/png/banner_256_trans.png" /></a> |
-
-**[Apache 2.2](https://github.com/devilbox/docker-apache-2.2) | [Apache 2.4](https://github.com/devilbox/docker-apache-2.4) | [Nginx stable](https://github.com/devilbox/docker-nginx-stable) | Nginx mainline**
-
-----
-
-
 ## Options
 
 #### Environmental variables
