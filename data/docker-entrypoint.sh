@@ -14,6 +14,9 @@ set -o pipefail
 # HTTPD_START
 # HTTPD_RELOAD
 
+# Path to scripts to source
+CONFIG_DIR="/docker-entrypoint.d"
+
 ###
 ### Source libs
 ###
