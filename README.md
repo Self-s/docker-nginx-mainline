@@ -1,4 +1,4 @@
-# Forked from devilbox/docker-nginx-mainline without virtual hosts
+# Forked from devilbox/docker-nginx-mainline and delete virtual hosts function
 
 [![Build Status](https://travis-ci.org/devilbox/docker-nginx-mainline.svg?branch=master)](https://travis-ci.org/devilbox/docker-nginx-mainline)
 [![release](https://img.shields.io/github/release/devilbox/docker-nginx-mainline.svg)](https://github.com/devilbox/docker-nginx-mainline/releases)
