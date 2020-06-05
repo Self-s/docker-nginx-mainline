@@ -12,7 +12,6 @@ LABEL \
 ###
 ENV MY_USER=nginx
 ENV MY_GROUP=nginx
-ENV HTTPD_START="/usr/sbin/nginx"
 
 ###
 ### Copy files

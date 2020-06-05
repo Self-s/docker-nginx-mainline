@@ -11,8 +11,6 @@ set -o pipefail
 # Set via Dockerfile
 # MY_USER
 # MY_GROUP
-# HTTPD_START
-# HTTPD_RELOAD
 
 # Path to scripts to source
 CONFIG_DIR="/docker-entrypoint.d"
@@ -56,4 +54,4 @@ set_timezone "TIMEZONE" "${DEBUG_LEVEL}"
 ################################################################################
 
 log "info" "Starting webserver" "${DEBUG_LEVEL}"
-exec ${HTTPD_START}
+exec nginx -g 'daemon off;'
