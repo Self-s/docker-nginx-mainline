@@ -16,7 +16,7 @@ ENV MY_GROUP=nginx
 ###
 ### Copy files
 ###
-
+RUN rm -rf /docker-entrypoint.d /docker-entrypoint.sh
 COPY ./data/docker-entrypoint.d /docker-entrypoint.d
 COPY ./data/docker-entrypoint.sh /docker-entrypoint.sh
 
