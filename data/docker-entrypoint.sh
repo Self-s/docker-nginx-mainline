@@ -38,10 +38,6 @@ done
 DEBUG_LEVEL="$( env_get "DEBUG_ENTRYPOINT" "0" )"
 log "info" "Debug level: ${DEBUG_LEVEL}" "${DEBUG_LEVEL}"
 
-DEBUG_RUNTIME="$( env_get "DEBUG_RUNTIME" "0" )"
-log "info" "Runtime debug: ${DEBUG_RUNTIME}" "${DEBUG_LEVEL}"
-
-
 ###
 ### Change uid/gid
 ###
